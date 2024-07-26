@@ -1,0 +1,279 @@
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black; /* To handle any overflow edges */
+}
+
+.loading-screen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.loading-screen img {
+  width: 50%;
+  height: auto;
+}
+
+.frame-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.desktop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("https://external-preview.redd.it/uhq5zTcMPM3tOW_fbUz4PayDt_5pkEXdyXXoRWs3XOg.jpg?auto=webp&s=e06461124c1ccfdba7e9ece763b644ff68eeb06b")
+    no-repeat center center;
+  background-size: 100% 100%; /* Stretch to fit */
+  z-index: 1; /* Ensure content is below the frame */
+  aspect-ratio: 1024 / 768; /* Maintain aspect ratio */
+  width: 100%; /* Ensure the container stretches horizontally */
+  height: auto; /* Let height adjust to maintain aspect ratio */
+  max-height: 100%; /* Prevents the height from exceeding the viewport */
+}
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/71d67e23-33a4-4296-b1e2-146c1a2eb2d7/dexnk7i-e2f5ebee-0f44-4424-abce-bb6063edf9b9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzcxZDY3ZTIzLTMzYTQtNDI5Ni1iMWUyLTE0NmMxYTJlYjJkN1wvZGV4bms3aS1lMmY1ZWJlZS0wZjQ0LTQ0MjQtYWJjZS1iYjYwNjNlZGY5YjkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.XoxEjMroIo4Z77j4pKXcjk3fvoabrOYozJHHkZ1JxhI")
+    no-repeat center center;
+  background-size: 100% 100%; /* Stretch to fit */
+  pointer-events: none; /* Allow clicks to pass through the frame */
+  z-index: 2; /* Ensure the frame is on top */
+  aspect-ratio: 1024 / 768; /* Maintain aspect ratio */
+  width: 100%; /* Ensure the container stretches horizontally */
+  height: auto; /* Let height adjust to maintain aspect ratio */
+  max-height: 100%; /* Prevents the height from exceeding the viewport */
+}
+
+.desktop {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1; /* Ensure content is above the background */
+}
+
+.desktop-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  position: absolute;
+  top: 12%; /* Adjust this value to position the icons vertically */
+  left: 10%; /* Adjust this value to position the icons horizontally */
+}
+
+.window-button {
+  width: 80px; /* Adjust width as needed */
+  height: 80px; /* Adjust height as needed */
+  border: none;
+  background: none; /* No background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+.window-button img {
+  width: 100%; /* Make the image fill the button */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.window-button span {
+  margin-top: 15px; /* Move the text further down */
+  font-size: 12px;
+  text-align: center;
+}
+
+.window-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight hover effect */
+}
+
+.taskbar {
+  width: 95%; /* Adjust the width as needed */
+  height: 50px;
+  background: linear-gradient(to right, #1c5d99, #3a82cc);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  bottom: 10%; /* Adjust this value to move the taskbar up */
+  left: 2.5%; /* Adjust this value to center the taskbar horizontally */
+}
+
+.start-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #0078d7;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 33%; /* Adjust this value to position the button vertically */
+  left: 8.5%; /* Adjust this value to position the button horizontally */
+}
+
+.start-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Centering pop-up windows */
+.window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Start Menu styles */
+.start-menu {
+  position: absolute;
+  bottom: 110%; /* Align with taskbar */
+  left: 8.5%; /* Align with Start button */
+  width: 210px;
+  background-color: #e5e5e5;
+  border: 2px solid #1c5d99;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+
+.start-menu-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #1c5d99;
+  color: white;
+  font-size: 16px;
+}
+
+.start-menu-header img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.start-menu-content {
+  display: flex;
+}
+
+.start-menu-left,
+.start-menu-right {
+  padding: 10px;
+}
+
+.start-menu-left ul,
+.start-menu-right ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.start-menu-left ul li,
+.start-menu-right ul li {
+  margin-bottom: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.start-menu-left ul li img,
+.start-menu-right ul li img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.start-menu-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+.start-menu-footer button {
+  background-color: #d9534f;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Command Prompt styles */
+.command-prompt {
+  width: 500px;
+  height: 300px;
+  background-color: black;
+  color: white;
+  font-family: monospace;
+  display: flex;
+  flex-direction: column;
+}
+
+.command-output {
+  flex-grow: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column-reverse; /* Ensures new output is at the top */
+  padding: 5px;
+}
+
+.command-input {
+  width: 100%;
+  border: none;
+  background-color: black !important; /* Set the background to black */
+  color: white !important; /* Set the text color to white */
+  font-family: monospace;
+  padding: 5px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Profile links */
+.profile-links {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.profile-links img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
